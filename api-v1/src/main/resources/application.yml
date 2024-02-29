@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:${DB_CONNECTION:postgresql}://${DB_HOST:localhost:5432}/${DB_DATABASE:postgres}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:secret}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update # or create-drop if you want to recreate tables on every run
+    show-sql: true # set to true to display SQL queries in console
+    generate-ddl: true # set to true to generate the schema DDL (but not execute it)
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+server:
+  port: 8081
+logging:
+  level:
+    org:
+      springframework:
+        web: ERROR
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000
+
+file:
+  upload-dir: C:\Users\theng\Pictures\storage\
